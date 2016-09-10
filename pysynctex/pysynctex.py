@@ -15,6 +15,8 @@ import enum
 
 import _synctex_parser as _sp
 
+from pysynctex.dochelpers import adddoc, wrapdoc 
+
 _C_STDOUT_NOTE = """IMPORTANT NOTE: This function targets debugging and 
         development purposes. It uses C level stdout functions which are not
         captured on Python level. In future versions redirecting this display
@@ -25,24 +27,6 @@ _TEX_COORD_DOC = """Expressed in TeX small points coordinates, with origin at
         
 _PAGE_COORD_DOC = """Expressed in page coordinates, with origin at
         the top left corner."""
-
-def wrapdoc(function_name):
-    def real_wrapsdoc(function):
-        wrapdoc = ("""Synctex parser library function wrapped:
-            - {}
-        Consult 'synctex_parser.h' documentation for more information."""
-                   .format(function_name))
-        return adddoc(wrapdoc=wrapdoc)(function)
-    return real_wrapsdoc
-
-def adddoc(**docstrings):
-    """Adds docstrings to function __doc__.
-    """
-    def real_adddoc(function):
-        new_doc = function.__doc__.format(**docstrings)
-        function.__doc__ = new_doc
-        return function
-    return real_adddoc
 
 
 class SyncTeXNodeType(enum.Enum):
