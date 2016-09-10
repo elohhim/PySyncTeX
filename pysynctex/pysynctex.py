@@ -15,7 +15,7 @@ import enum
 
 import _synctex_parser as _sp
 
-from pysynctex.dochelpers import adddoc, wrapdoc 
+from dochelpers import adddoc, wrapdoc 
 
 _C_STDOUT_NOTE = """IMPORTANT NOTE: This function targets debugging and 
         development purposes. It uses C level stdout functions which are not
@@ -678,14 +678,14 @@ class SyncTeXScanner(object):
         
 if __name__ == '__main__':
 #SERVES AS TEST SUITE
-    with SyncTeXScanner('example/_build/presentation.pdf') as scanner:
+    with SyncTeXScanner('../example/example.pdf') as scanner:
         #Scanner
         print("SCANNER")
         print(scanner)
-        query = scanner.display_query('presentation.tex', 50, 1)
+        query = scanner.display_query('example.tex', 10, 0)
         print(query)
         node = query[0]
-        print(scanner.edit_query(5, 0.5, 0.5))
+        print(scanner.edit_query(1, 0.5, 0.5))
         print(scanner.x_offset)
         print(scanner.y_offset)
         print(scanner.magnification)
