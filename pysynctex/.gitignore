@@ -1,3 +1,2 @@
-/example/
-/.project
-/.pydevproject
+/synctex_parser_wrap.c
+/synctex_parser.py

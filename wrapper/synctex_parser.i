@@ -2,7 +2,7 @@
 %module synctex_parser
 %{
 /* Headers and declarations */
-#include "synctex_parser.h"
+#include <synctex_parser.h>
 %}
 
 /*
@@ -15,4 +15,4 @@ synctex_node_t synctex_next_result(synctex_scanner_t scanner);
 void synctex_scanner_display(synctex_scanner_t scanner);
 */
 
-%include "lib/synctex_parser.h"
+%include "synctex_package/synctex_parser.h"
