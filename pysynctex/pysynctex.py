@@ -13,9 +13,9 @@ Author: Jan Kumor
 """
 import enum
 
-import _synctex_parser as _sp
+from . import _synctex_parser as _sp
 
-from dochelpers import adddoc, wrapdoc 
+from .dochelpers import adddoc, wrapdoc 
 
 _C_STDOUT_NOTE = """IMPORTANT NOTE: This function targets debugging and 
         development purposes. It uses C level stdout functions which are not
